@@ -19,7 +19,7 @@
         <!-- Right -->
         <div class="col-md-4 text-center text-md-end">
           <a
-            href="https://www.facebook.com/"
+            href="https://www.facebook.com/ProfileHieuMongMo.Developer"
             target="_blank"
             class="footer-icon"
           >
@@ -35,7 +35,11 @@
           <a href="mailto:hieulm24@gmail.com" class="footer-icon">
             <i class="bi bi-envelope"></i>
           </a>
-          <a href="https://github.com/" target="_blank" class="footer-icon">
+          <a
+            href="https://github.com/lanhmhieu8386"
+            target="_blank"
+            class="footer-icon"
+          >
             <i class="bi bi-github"></i>
           </a>
         </div>

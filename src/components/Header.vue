@@ -6,18 +6,34 @@
         <span class="brand-text">HieuDev</span>
       </a>
 
+      <!-- Toggle button (mobile) -->
+      <button class="navbar-toggler" type="button" @click="isOpen = !isOpen">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <!-- Menu -->
-      <div class="navbar-menu">
-        <a href="#home" class="nav-item">Home</a>
-        <a href="#about" class="nav-item">About</a>
-        <a href="#skills" class="nav-item">Skills</a>
-        <a href="#education" class="nav-item">Education</a>
-        <a href="#contact" class="nav-item">Contact</a>
+      <div class="collapse navbar-collapse" :class="{ show: isOpen }">
+        <div class="navbar-nav ms-auto">
+          <a href="#home" class="nav-item nav-link" @click="close">Home</a>
+          <a href="#about" class="nav-item nav-link" @click="close">About</a>
+          <a href="#skills" class="nav-item nav-link" @click="close">Skills</a>
+          <a href="#education" class="nav-item nav-link" @click="close"
+            >Education</a
+          >
+          <a href="#contact" class="nav-item nav-link" @click="close"
+            >Contact</a
+          >
+        </div>
       </div>
     </div>
   </nav>
 </template>
+<script setup>
+import { ref } from "vue";
 
+const isOpen = ref(false);
+const close = () => (isOpen.value = false);
+</script>
 <style scoped>
 .custom-navbar {
   background: linear-gradient(90deg, #f8fbff, #eef6ff);
@@ -33,21 +49,15 @@
   color: #0f172a;
 }
 
-.navbar-menu {
-  display: flex;
-  align-items: center;
-}
-
+/* nav item */
 .nav-item {
   margin-left: 24px;
   font-weight: 500;
-  color: #0f172a;
+  color: #0f172a !important;
   text-decoration: none;
   position: relative;
-  transition: 0.3s;
 }
 
-/* underline hover */
 .nav-item::after {
   content: "";
   position: absolute;
@@ -60,10 +70,17 @@
 }
 
 .nav-item:hover {
-  color: #0d6efd;
+  color: #0d6efd !important;
 }
 
 .nav-item:hover::after {
   width: 100%;
+}
+
+/* mobile */
+@media (max-width: 991px) {
+  .nav-item {
+    margin: 12px 0;
+  }
 }
 </style>
