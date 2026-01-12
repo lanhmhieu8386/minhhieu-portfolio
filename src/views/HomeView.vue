@@ -524,28 +524,27 @@ SKILL -->
 .avatar-wave {
   width: 280px;
   height: 280px;
-  background: #0d6efd;
-  padding: 8px;
-
-  /* QUAN TRỌNG */
+  position: relative;
   overflow: hidden;
 
-  animation: wave 4s ease-in-out infinite;
+  animation: blob 8s ease-in-out infinite;
 
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  /* viền mờ nhẹ */
+  box-shadow: 0 0 0 1px rgba(13, 110, 253, 0.15),
+    0 18px 45px rgba(13, 110, 253, 0.25);
 }
-
+.avatar-wave {
+  box-shadow: inset 0 0 18px rgba(13, 110, 253, 0.25),
+    0 25px 60px rgba(13, 110, 253, 0.35);
+}
 .avatar-wave img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  /* KHÔNG TRÒN ĐỀU */
-  border-radius: 50%;
 }
 
 /* LƯỢN RÕ – BIÊN ĐỘ LỚN */
-@keyframes wave {
+/* @keyframes wave {
   0% {
     border-radius: 60% 40% 55% 45% / 60% 45% 55% 40%;
   }
@@ -558,8 +557,41 @@ SKILL -->
   100% {
     border-radius: 60% 40% 55% 45% / 60% 45% 55% 40%;
   }
-}
+} */
 
+@keyframes blob {
+  0% {
+    border-radius: 42% 58% 55% 45% / 50% 40% 60% 50%;
+  }
+  25% {
+    border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
+  }
+  50% {
+    border-radius: 60% 40% 55% 45% / 60% 45% 55% 40%;
+  }
+  75% {
+    border-radius: 45% 55% 60% 40% / 40% 60% 40% 60%;
+  }
+  100% {
+    border-radius: 42% 58% 55% 45% / 50% 40% 60% 50%;
+  }
+}
+.avatar-wave::after {
+  content: "";
+  position: absolute;
+  inset: -10px; /* lan rộng hơn */
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(13, 110, 253, 0.45),
+    rgba(13, 110, 253, 0.15),
+    transparent 70%
+  );
+
+  filter: blur(22px); /* blur mạnh hơn */
+  z-index: -1;
+}
 .skills-section {
   background: #f8f9fa;
 }
