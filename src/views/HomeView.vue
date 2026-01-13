@@ -90,7 +90,7 @@ import avatar2 from "@/assets/avatar2.jpg";
         <!-- Download CV -->
         <div class="text-center mt-5">
           <a
-            href="/LanhMinhHieu_CV.pdf"
+            href="/LanhMinhHieu.pdf"
             download
             class="btn btn-dark btn-lg cv-btn"
           >
@@ -274,7 +274,7 @@ SKILL -->
         <!-- Download CV -->
         <div class="mt-5">
           <a
-            href="/LanhMinhHieu_CV.pdf"
+            href="/LanhMinhHieu.pdf"
             download
             class="btn btn-dark btn-lg cv-btn"
           >
