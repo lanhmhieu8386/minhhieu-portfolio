@@ -472,6 +472,105 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
   }
 }
 @media (max-width: 991px) {
+  /* 1. Container bọc ngoài */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1001;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Làm mờ nền cực nhẹ để nổi bật cái card */
+  .menu-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* 2. ÉP CÂN MENU CARD (Bóp mạnh ở đây) */
+  .links-inner {
+    position: absolute;
+    top: 75px; /* Đẩy xuống một chút từ nút hamburger */
+    right: 15px;
+    width: 170px !important; /* Bóp chiều ngang cực gọn */
+    height: auto !important; /* Cho chiều cao tự co theo chữ */
+    background: #0a0a0a !important; /* Giữ tông đen luxury */
+    border-radius: 8px; /* Bo góc nhẹ */
+    padding: 20px 0 !important; /* Chỉ padding dọc, ngang tính sau */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important; /* Căn giữa chữ */
+    gap: 15px !important; /* Khoảng cách các mục sát lại */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(197, 160, 89, 0.2); /* Viền vàng mờ cực mảnh */
+
+    /* Hiệu ứng hiện ra nhẹ nhàng */
+    transform: scale(0.95) translateY(-10px);
+    transform-origin: top right;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .nav-links.is-open .links-inner {
+    transform: scale(1) translateY(0);
+  }
+
+  /* 3. Chỉnh lại chữ cho nhỏ và tinh tế */
+  .link-item {
+    font-size: 13px !important; /* Chữ nhỏ lại */
+    font-weight: 500;
+    letter-spacing: 2px !important;
+    color: #fff !important;
+    text-align: center;
+    width: 100%;
+    padding: 2px 0;
+    border: none !important;
+  }
+
+  .link-item::after {
+    display: none; /* Mobile bỏ gạch chân cho gọn */
+  }
+
+  /* 4. Nút Connect (Bóp nhỏ lại) */
+  .tech-btn {
+    width: 130px !important; /* Bóp nút lại */
+    height: 35px !important;
+    margin-top: 5px;
+    padding: 0 !important;
+    justify-content: center !important;
+    border: 1px solid rgba(197, 160, 89, 0.4) !important;
+    font-size: 10px !important;
+    gap: 8px !important;
+  }
+
+  .btn-icon {
+    font-size: 12px !important;
+  }
+
+  .divider-tech {
+    width: 30px; /* Đường kẻ ngắn lại làm cảnh */
+    height: 1px;
+    background: rgba(197, 160, 89, 0.3);
+    margin: 5px 0;
+  }
+
+  /* 5. Nút Toggle (X) - Đảm bảo nó nổi bật */
+  .menu-toggle {
+    z-index: 2000;
+  }
+}
+@media (max-width: 991px) {
   .luxury-header {
     padding: 25px 0;
   }
@@ -517,7 +616,7 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
     padding: 60px 50px; /* Rộng hơn */
     flex-direction: column;
     align-items: flex-start;
-    gap: 35px;
+    gap: 25px;
     box-shadow: 0 50px 120px rgba(0, 0, 0, 0.7);
   }
 
