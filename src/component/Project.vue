@@ -84,7 +84,7 @@ const projects = ref([
       { name: "Auth", iconClass: "devicon-azuresqldatabase-plain colored" },
     ],
     image: anh28,
-    github: "#",
+    github: "https://github.com/lanhmhieu8386/FourSpiceHotpot",
     status: "PRODUCTION_READY",
   },
   {
@@ -103,7 +103,7 @@ const projects = ref([
       },
     ],
     image: anh27,
-    github: "#",
+    github: "https://github.com/lanhmhieu8386/BanQuanShortMHS",
     status: "STABLE",
   },
   {
@@ -119,7 +119,7 @@ const projects = ref([
       { name: "GitHub", iconClass: "devicon-github-original" },
     ],
     image: anh26,
-    github: "#",
+    github: "https://github.com/lanhmhieu8386/BanAoPhongWearZone",
     status: "LEGACY_MAINTAIN",
   },
 ]);
