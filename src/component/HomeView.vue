@@ -730,6 +730,9 @@ html {
 }
 /* SIÊU TINH CHỈNH MOBILE - LUXURY RESPONSIVE */
 @media (max-width: 991px) {
+  .editorial-img {
+    object-position: center 90%; /* hoặc center 30% nếu muốn lên nhẹ */
+  }
   .hero-minimal {
     background: #fff; /* Bỏ gradient chia đôi vì mobile chỉ có 1 cột */
     padding-top: 100px; /* Tránh đè Header */
